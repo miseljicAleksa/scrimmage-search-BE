@@ -1,0 +1,278 @@
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 20px!important;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-left: 0px!important;
+}
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 8px;
+}
+.wrapper {
+    overflow-y: hidden;
+}
+.button-call-send {
+	margin: auto;
+	width: 70%;
+}
+
+@media screen and (max-width: 800px){
+	.button-call-send {
+		width: 100%;
+	}
+}
+
+.form-control {
+	border-radius: 5px;
+}
+
+.edit-call-list {
+	text-align: center; 
+    border-bottom: 1px solid #99c5dd;
+    width: 70%;
+    margin: auto;
+}
+
+#backendCallAddressesUpdateForm {
+	margin-top: 20px;
+}
+
+.heading-style {
+	color: #1b7aaa;
+	font-size: 19px; 
+	padding-top: 10px;
+	text-align: center;
+}
+
+.table-responsive{
+	overflow-x: visible!important;
+}
+
+/* managerLeftmenu.phtml - SELECT SEASON */
+
+select[name="mySeason"] {
+  margin-top: 10px;
+  width: 100%;
+  padding: 5px 65px 5px 5px;
+  font-size: 14px;
+  border: 2px solid #4b646f;
+  height: 34px;
+  color: #7b939f;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(/theme/dist/img/angle.png) 96% / 15% no-repeat #1a2226;
+}
+
+
+/* CAUTION: IE hackery ahead */
+select[name="mySeason"]::-ms-expand { 
+    display: none; /* remove default arrow in IE 10 and 11 */
+}
+
+/* target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select[name="mySeason"] {
+        background:none\9;
+        padding: 5px\9;
+    }
+}
+
+/* list.phtml */
+
+#list-account {
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+/* create new account */
+
+.center-submit {
+    margin: auto;
+    width: 50%;
+}
+
+@media screen and (max-width: 990px) {
+	.center-submit {
+	    width: 100%;
+	}
+}
+
+/* create new contact */
+
+#new-contact-row, .edit-contact-row {
+	margin: auto;
+	width: 60%;
+}
+
+@media screen and (max-width: 1100px) {
+	#new-contact-row, .edit-contact-row {
+	    margin: auto;
+	    width: 90%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	#new-contact-row, .edit-contact-row {
+	    margin: auto;
+	    width: 100%;
+	}
+}
+
+/* */
+
+#list-account input[type="checkbox"], input[type="radio"] {
+    margin: 4px 20px 0;
+}
+
+
+#userUpsertSaveButton, #contactUpsertSaveButton, .button-style, #blue-button input, #serialUpdate, #create-project-button, #create-paper-button {
+    background-color: #1b7aaa;
+    color: #fff;
+}
+
+#userUpsertSaveButton:hover, #contactUpsertSaveButton:hover, #blue-button input:hover,
+ #serialUpdate:hover, #create-project-button:hover, #create-paper-button:hover, .button-style:hover {
+    background: linear-gradient(to right, rgba(70,153,194,1) 0%, rgba(27,122,170,1) 40%, rgba(27,122,170,1) 59%, rgba(70,153,194,1) 100%);
+    color: #fff;
+}
+
+
+.checkbox-style input[type="checkbox"], input[type="radio"] {
+    margin: 4px 20px 0;
+}
+
+.checkbox-style label{
+    margin-left: 25px;
+}
+
+.checkbox-style {
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1200px) {
+	#blue-button {
+		width: 60%;
+	}
+}
+
+
+/* ----- add new project  ----- */
+
+#new-project-row {
+	margin: auto;
+	width: 60%;
+}
+
+#view-projects {
+	margin: 0 20%;
+	margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+	#new-project-row {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	#new-project-row {
+		margin: auto;
+		width: 100%;
+	}
+	#view-projects {
+		margin: 0 10%;
+		margin-bottom: 50px;
+	}
+}
+
+/* ----- add new paper ----- */
+#new-paper {
+	margin: auto;
+	width: 70%;
+}
+#new-paper-row {
+	margin: auto;
+	width: 60%;
+}
+
+@media screen and (max-width: 1200px) {
+	#new-paper {
+		margin: auto;
+		width: 90%;
+	}
+	#new-paper-row {
+		margin: auto;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	#new-paper {
+		width: 100%;
+	}
+	#new-paper-row {
+		margin: auto;
+		width: 100%;
+	}
+}
+
+/* process.phtml */
+
+#editor-stuff-sett, #coeditor-stuff-sett {
+	       height: 108px;
+	   }
+	   
+	   #regional-sett-content {
+	       padding-left: 10%;
+	   }
+	   
+	   #input-regional-sett {
+	       padding: 20px 0;
+	   }
+	   
+	   @media screen and (max-width: 1000px) {
+		   #regional-sett-content {
+		       margin: auto;
+		       width: 37%;
+		   }
+	   }
+	   
+	   @media screen and (max-width: 700px) {
+		   #regional-sett-content {
+		       margin: auto;
+		       width: 40%;
+		   }
+	   }
+	   
+	    @media screen and (max-width: 600px) {
+		   #regional-sett-content {
+		       width: 45%;
+		   }
+	   }
+	   
+	    @media screen and (max-width: 500px) {
+		   #regional-sett-content {
+		       width: 60%;
+		   }
+	   }
+
+/* main navigation text style */
+
+.navigation-text {
+	color: #1a2226;
+}
+
+
+.pagination-colors {
+        background-color: #eee;
+        border: 1px solid #ddd;
+        margin: 0 2px;
+}
+
+.usersTable.table > tbody > tr > td {
+	
+	line-height: 1.1;
+	vertical-align: middle;
+}
+	

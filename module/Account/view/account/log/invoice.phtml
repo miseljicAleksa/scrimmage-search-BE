@@ -1,0 +1,109 @@
+<div class="container-fluid settings-container">
+			
+			
+			<div class="main-content-settings">						
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12">
+							<div class="content">
+								<div class="row input-section">
+									<div class="col-md-12">
+									<br />
+									<br />
+									<br />
+									</div>
+								</div>
+								<div class="row input-section">
+									<address class="col-sm-12 company-info">
+										<h4 class="company-name"><?php echo $this->inv->getMapper()['orgName'];?></h4>
+										<p class="company-address"><?php echo $this->inv->getMapper()['orgAddress'];?></p>
+										<p class="company-address"><?php echo $this->inv->getMapper()['orgCity'];?>, <?php echo $this->inv->getMapper()['orgCountry'];?></p>
+										<!-- <p class="company-email"><a href="info@lepsha.com" title="info@lepsha.com">info@lepsha.com</a></p>
+										<p class="company-web"><a href="www.lepsha.com" title="www.lepsha.com">www.lepsha.com</a></p> -->
+									</address>
+								</div>
+								<div class="row input-section">
+									<div class="col-md-12">
+									<br />
+									<br />
+									<br />
+									<br />
+									<br />
+									<br />
+									<br />
+									<br />
+									<br />
+									<br />
+									<br />
+									</div>
+								</div>
+								<div class="row input-section">
+									<div class="col-md-12">
+										<form class="invoice-form" action="javascript:;" method="post">
+											<input value="<?php echo $this->inv->getProjectId();?>" class="form-control datepicker inputProjectId" data-position="left bottom" type="hidden">
+											<h2>Invoice No: <?php echo $this->inv->getNumber();?></h2>
+											<div class="invoice-date">
+												<span><strong>Date: </strong></span>
+												<div class="form-group date">
+													<input value="<?php echo $this->inv->getOfferDate();?>" class="form-control datepicker inputOfferDate" data-position="left bottom" type="text">
+												</div>
+											</div>										
+											<div class="form-group">
+												<span><strong>Attention: </strong></span>
+												<textarea class="form-control inputAttention" rows="5"><?php echo $this->inv->getAttention();?></textarea>
+												<span class="material-input"></span>
+											</div>
+											<div class="invoice-table">
+												<table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
+													<thead>
+														<tr>
+															<th width="30%">Item</th>
+															<th width="10%">QTY</th>
+															<th width="10%">Unit Price</th>
+															<th width="10%">Tax Base</th>
+															<th width="10%" style="text-align: right">VAT</th>
+															<th width="30%" style="text-align: right">Amount</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><?php echo $this->inv->getProjectName();?></td>
+															<td>1</td>
+															<td><input value="<?php echo $this->inv->getPrice();?>" class="inputPrice" type="text"></td>
+															<td class="taxBase"><?php echo $this->inv->getTaxBase();?></td>
+															<td align=right><strong><?php echo $this->inv->getTax();?>%</strong></td>
+															<td class="htmlSubTotal" align=right><?php echo $this->inv->getSubTotal();?></td>
+														</tr>
+														<tr>
+															<td class="prices-txt" colspan="4" rowspan="5">All prices in EUR</td>
+															<td align=right><strong>Subtotal</strong></td>
+															<td align=right><strong class="htmlSubTotal"><?php echo $this->inv->getSubTotal();?></strong></td>
+														</tr>
+														<tr>
+															<td align=right><strong>Discount</strong></td>
+															<td align=right><input class="inputDiscount" name="discount" value="<?php echo $this->inv->getDiscount();?>" class="" type="text" style="width: 80px"></td>
+														</tr>
+														<tr>
+															<td align=right><strong>Tax Base</strong></td>
+															<td align=right><strong class="htmlTaxBase"><?php echo $this->inv->getTaxBase();?></strong></td>
+														</tr>
+														<tr>
+															<td align=right><strong>VAT</strong></td>
+															<td align=right><strong class="htmlTax"><?php echo $this->inv->getTax();?></strong></td>
+														</tr>
+														<tr>
+															<td align=right><strong>TOTAL</strong></td>
+															<td align=right><strong class="htmlTotal"><?php echo $this->inv->getTotal();?></strong> EUR</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>							
+						</div>						
+					</div>							
+				</div>
+			</div>
+		</div>

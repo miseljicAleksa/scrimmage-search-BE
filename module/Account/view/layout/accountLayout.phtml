@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<title>Scrimmage Search</title>
+
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<?php /** echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+	->appendStylesheet($this->basePath() . '/css/bootstrap.min.css')
+	->appendStylesheet($this->basePath() . '/css/jq.ui/smoothness/jq.ui.1.8.23.min.css')
+	->appendStylesheet($this->basePath() . '/js/jq_tables/demo_table_jui.css')
+	->appendStylesheet($this->basePath() . '/css/backend/style.css')
+		->appendStylesheet($this->basePath() . '/css/forms.css');**/
+
+
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+    ->appendStylesheet($this->basePath() . '/theme/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    ->appendStylesheet($this->basePath() . '/theme/bower_components/font-awesome/css/font-awesome.min.css')
+    ->appendStylesheet($this->basePath() . '/theme/dist/css/AdminLTE.min.css')
+    ->appendStylesheet($this->basePath() . '/theme/dist/css/skins/_all-skins.min.css')
+    ->appendStylesheet($this->basePath() . '/theme/dist/css/style.css')
+    ->appendStylesheet($this->basePath() . '/theme/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')
+    ->appendStylesheet($this->basePath() . '/css/backend/stm/tl.css')
+    ->appendStylesheet($this->basePath() . '/theme/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css')
+    ->appendStylesheet($this->basePath() . '/theme/bower_components/select2/dist/css/select2.min.css');
+    
+    
+	echo $this->headScript()->appendFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+		->appendFile($this->basePath() . '/theme/bower_components/jquery/dist/jquery.min.js')
+		->appendFile($this->basePath() . '/theme/bower_components/jquery-ui/jquery-ui.min.js')
+		->appendFile($this->basePath() . '/theme/bower_components/bootstrap/dist/js/bootstrap.min.js')
+		->appendFile($this->basePath() . '/theme/dist/js/adminlte.min.js')
+		->appendFile($this->basePath() . '/theme/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js')
+		->appendFile($this->basePath() . '/theme/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')
+		->appendFile($this->basePath() . '/theme/bower_components/select2/dist/js/select2.full.min.js');
+		?>
+
+</head>
+<?php 
+	$currentUser = \Workmark\User\User::getCurrent();
+?>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+ <!-- NEW HTML ELEMENTS -->
+    <header class="main-header">
+    	<a href="" class="logo">
+      		<span class="logo-mini"><b>SS</b></span>
+      		<span class="logo-lg"><b>SCRIMMAGE</b>SEARCH</span>
+    	</a>
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button -->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+        
+          <li class="dropdown messages-menu">
+            <a href="/" class="dropdown-toggle">
+              <!-- <i class="fa fa-bank"></i> -->
+              <span class="glyphicon glyphicon-home"></span>
+              <span class="label label-success"></span>
+            </a>
+           </li>
+          
+          <?php if ($currentUser) : 
+          
+          $initials = substr($currentUser->getFirstName(),0,1) . substr($currentUser->getLastName(),0,1);
+          $svg = '<svg xmlns="http://www.w3.org/2000/svg" pointer-events="none" width="44" height="44"
+style="background-color:#DEE2E3; width: 44px; height:44px; border-radius: 0px; -moz-border-radius: 0px;">
+<text text-anchor="middle" y="50%" x="50%" dy="0.35em" pointer-events="auto" fill="#9C9C9C" font-family="HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica, Arial,Lucida Grande, sans-serif" style="font-weight: 300; font-size: 30px;">'.$initials.'</text>
+</svg>';
+          $imgSrc = 'data:image/svg+xml;base64,'.base64_encode($svg);
+          
+          ?>
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="<?php echo $imgSrc;?>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?php echo $currentUser->getFirstName() . " " . $currentUser->getLastName() ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="<?php echo $imgSrc;?>" class="img-circle" alt="User Image">
+
+                <p>
+                  <?php echo $currentUser->getFirstName() . " " . $currentUser->getLastName() ?>
+                  <!-- <small>Member since Nov. 2012</small> -->
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="/" class="btn btn-default btn-flat">Home</a>
+                </div>
+                <div class="pull-right">
+                  <a href="/account/log/out" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          
+          <?php else : ?>
+
+            <li class="dropdown messages-menu">
+            <a href="<?php echo $this->url('login'); ?>" class="" data-toggle="">
+              <i class="fa fa-sign-in"></i>
+              <span class="label">Sign in</span>
+            </a>
+           </li>
+
+			<?php endif; ?>
+			
+        </ul>
+      </div>
+    </nav>
+   </header>
+
+<?php if ($currentUser) : ?>
+
+	<!-- Left side column -->
+  		<aside class="main-sidebar">
+        <!-- sidebar -->
+    		<section class="sidebar">
+    		
+    		<!-- search form -->
+	      <form action="/account/users/list" method="get" class="sidebar-form">
+	        <div class="input-group">
+	          <input type="text" name="q" class="form-control" value="<?php echo $this->q ?>" placeholder="Search users...">
+	          <span class="input-group-btn">
+	                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+	                </button>
+	              </span>
+	        </div>
+	      </form>
+      <!-- /.search form -->
+             
+		<ul class="sidebar-menu" data-widget="tree">
+		<li class="header">MAIN NAVIGATION</li>
+		<li>
+          <a href="/account/users/list">
+            <i class="fa fa-user">
+            </i> <span>Users</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="/account/teams/list">
+            <i class="fa fa-users">
+            </i> <span>Teams</span>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a href="/account/officials/list">
+            <i class="fa fa-gavel">
+            </i> <span>Officials</span>
+          </a>
+        </li>
+        
+         <li>
+          <a href="/account/players/list">
+            <i class="fa fa-futbol-o">
+            </i> <span>Players</span>
+          </a>
+        </li>
+        
+         <li>
+          <a href="/account/scrimmages/list">
+            <i class="fa fa-trophy">
+            </i> <span>Games</span>
+          </a>
+        </li>
+		
+		</ul>
+		
+			</section> <!-- end of sidebar -->
+		</aside> <!-- end of main-sidebar -->
+
+
+    <div class="content-wrapper">
+    	<section class="content">
+		<?php echo $this->content; ?>
+		</section>
+    </div>
+
+	<?php else : ?>
+	
+    <div class="content-wrapper">
+    	<section class="content">
+		Please log in
+		</section>
+    </div>
+    
+	<?php endif; ?>
+	
+</div>
+
+<?= $this->inlineScript() ?>
+
+</body>
+
+</html>
+

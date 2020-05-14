@@ -1,0 +1,76 @@
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">List of scrimmages</h3>
+
+              <div class="box-tools">
+                
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="teamsTable table table-hover">
+                <tr>
+                  <th></th>
+                  <th>Created By</th>
+                  <th>Time</th>
+                  <th>Sport</th>
+                  <th>Place</th>
+                  <th>Team 1</th>
+                  <th>Team 2</th>
+                  <th>Official</th>
+                  <th>Descriptions</th>
+                  <th></th>
+                  
+                </tr>
+                <?php foreach($this->list as $one):?>
+                <tr>
+                  <td><img class="img-circle" width="25" alt="" src="<?php echo \Workmark\User\User::getImage($one);?>"></td>         
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo strtoupper($one['name']);?></span>
+                  </td>
+                  
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo \Workmark\Misc::datetimeToHuman($one['date_and_time']);?></span>
+                  </td>
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $one['sport_name'];?></span>
+                  </td>
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $one['place'];?></span>
+                  </td>
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $one['team_1_name'];?></span>
+                  </td>
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $one['team_2_name'];?></span>
+                  </td>
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $one['official_name'];?></span>
+                  </td>
+                  <td>
+                  <span style="text-overflow: ellipsis; width:140px; display: webkit-box; white-space: nowrap; overflow: hidden;font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $one['description'];?></span>
+                  </td>
+                  <td>
+                  <a title="View Attendees" href="/account/availability/list?id=<?php echo $one['id'];?>&entity=scrimmage" class="btn btn-xs"><i class="fa fa-clock-o"></i> <span>Aattendees</span></a>
+                  
+                  </td>
+                  
+
+                </tr>
+                <?php endforeach;?>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <div class="box-tools">
+                <?php echo $this->pagination; ?>
+              </div>
+            </div>
+            <!-- /.box-footer -->
+            
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>

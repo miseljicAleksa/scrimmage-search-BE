@@ -1,0 +1,64 @@
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">List of officials</h3>
+
+              <div class="box-tools">
+                
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="usersTable table table-hover">
+                <tr>
+             	<th>Image</th>
+                  <th>Experience</th>
+                  <th>Fee per game</th>
+                  <th>Officiating Certification</th>
+                  <th>Official Description</th>
+                  <th>Official Image</th>
+                  <th>Available</th>
+
+                </tr>
+                <?php foreach($this->officials as $official):?>
+                <tr>
+                  <td><img class="img-circle" width="25" alt="" src="<?php echo \Workmark\User\User::getImage($official);?>"></td>         
+                  
+                  
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $official['years_of_experience'];?></span>
+                  </td>
+                  
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $official['officiating_fee'];?></span>
+                  </td>
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $official['sertificate'];?></span>
+                  </td>
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $official['official_description'];?></span>
+                  </td>
+                  <td><a href="<?php echo \Workmark\Model\Player::getImage("official", $official['user_id']);?>"><img class="img-circle" width="30" height="30" alt="" src="<?php echo \Workmark\Model\Official::getImage("official", $official['user_id']);?>"></a></td>
+                   <td>
+                  <a title="Edit" href="/account/officials/edit?id=<?php echo $official['id'];?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> <span></span></a>
+                  <a title="View availability" href="/account/availability/list?id=<?php echo $official['id'];?>&entity=official" class="btn btn-xs"><i class="fa fa-clock-o"></i> <span>Available</span></a>
+                  </td>
+                  
+                 
+                </tr>
+                <?php endforeach;?>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <div class="box-tools">
+                <?php echo $this->pagination; ?>
+              </div>
+            </div>
+            <!-- /.box-footer -->
+            
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>

@@ -1,0 +1,51 @@
+<?php if($this->status):?>
+    <?php if($this->status == "success"):?>
+    <div class="callout callout-success">
+                <h4>Success!</h4>
+                <p>The data has been successfully updated.</p>
+              </div>
+    <?php else:?>
+    <div class="callout callout-danger">
+                <h4>Error!</h4>
+                <p><?php echo $this->status;?>.</p>
+              </div>
+    <?php endif;?>
+
+<?php endif;?>
+
+<div class="row">
+        <div class="col-xs-12">
+           <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"><?php echo $this->official->name;?></h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" action="" method="post">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="experience">Experience</label>
+                  <input value="<?php echo $this->official->years_of_experience;?>" name="years_of_experience" type="text" class="form-control" id="exampleInputEmail1" placeholder="Experience">
+                </div>
+                <div class="form-group">
+                  <label for="fee_per_game">Fee per game</label>
+                  <input value="<?php echo $this->official->officiating_fee;?>" name="officiating_fee" type="text" class="form-control" id="exampleInputEmail1" placeholder="Fee per game">
+                </div>
+                <div class="form-group">
+                  <label for="certification_file_name">Certification file name</label>
+                  <input value="<?php echo $this->official->sertificate;?>" name="sertificate" type="text" class="form-control" id="exampleInputEmail1" placeholder="Certification file name">
+                </div>
+                
+                
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>

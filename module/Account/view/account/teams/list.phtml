@@ -1,0 +1,88 @@
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">List of teams</h3>
+
+              <div class="box-tools">
+                
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="teamsTable table table-hover">
+                <tr>
+             
+                  <th>Name</th>
+                  <th>Gender</th>
+                  <th>Age</th>
+                  <th>Color</th>
+                  <th>Descriptions</th>
+                  <th>Team Image</th>
+                  <th>Team Logo</th>
+                  <th>Coach Image</th>
+                  
+                  <th></th>
+                  
+                </tr>
+                <?php foreach($this->teams as $team):?>
+                <tr>           
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo strtoupper($team['team_name']);?></span>
+                  </td>
+                  
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $team['team_gender'];?></span>
+                  </td>
+                  
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $team['age_group'];?></span>
+                  </td>
+                  
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;">
+                  <?php 
+                  
+                  $colors = (array)json_decode($team['team_colors']);
+                  
+                  foreach ($colors as $color)
+                  {
+                  	echo '<span style="display: inline-block;width:20px;height:20px;background-color:'.$color.'"></span>';
+                  }
+                  
+                  ?>
+                  </span>
+                  </td>
+                  
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $team['team_description'];?></span>
+                  </td>
+                  
+                  <td><a href="<?php echo \Workmark\Model\Teams::getImage("team", $team['user_id']);?>"><img class="img-circle" width="30" height="30" alt="" src="<?php echo \Workmark\Model\Teams::getImage("team", $team['user_id']);?>"></a></td>
+                  
+                  <td><a href="<?php echo \Workmark\Model\Teams::getImage("logo", $team['user_id']);?>"><img class="img-circle" width="30" height="30" alt="" src="<?php echo \Workmark\Model\Teams::getImage("logo", $team['user_id']);?>"></a></td>
+                  
+                  <td><a href="<?php echo \Workmark\Model\Teams::getImage("coach", $team['user_id']);?>"><img class="img-circle" width="30" height="30" alt="" src="<?php echo \Workmark\Model\Teams::getImage("coach", $team['user_id']);?>"></a></td>
+                  <td>
+                  <a title="Edit" href="/account/teams/edit?id=<?php echo $team['id'];?>" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i> <span></span></a>
+                  <a title="View availability" href="/account/availability/list?id=<?php echo $team['id'];?>&entity=team" class="btn btn-xs"><i class="fa fa-clock-o"></i> <span>Available</span></a>
+                  
+                  </td>
+                  
+
+                </tr>
+                <?php endforeach;?>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <div class="box-tools">
+                <?php echo $this->pagination; ?>
+              </div>
+            </div>
+            <!-- /.box-footer -->
+            
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>

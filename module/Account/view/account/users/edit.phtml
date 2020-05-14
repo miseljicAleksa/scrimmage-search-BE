@@ -1,0 +1,67 @@
+<?php if($this->status):?>
+    <?php if($this->status == "success"):?>
+    <div class="callout callout-success">
+                <h4>Success!</h4>
+                <p>The data has been successfully updated.</p>
+              </div>
+    <?php else:?>
+    <div class="callout callout-danger">
+                <h4>Error!</h4>
+                <p><?php echo $this->status;?>.</p>
+              </div>
+    <?php endif;?>
+
+<?php endif;?>
+
+<div class="row">
+        <div class="col-xs-12">
+           <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"><?php echo $this->user->getFullName();?></h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start --> 
+            <form role="form" action="" method="post">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="first_name">First Name</label>
+                  <input value="<?php echo $this->user->getFirstName();?>" name="first_name" type="text" class="form-control" id="exampleInputEmail1" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Last Name</label>
+                  <input value="<?php echo $this->user->getLastName();?>" name="last_name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input value="<?php echo $this->user->getEmail();?>" name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Leave empty to keep old">
+                </div>
+                <div class="form-group">
+                <label>Status</label>
+                <select name="status" class="form-control select2" style="width: 100%;">
+                  <option value="ACTIVE" <?php echo $this->user->getStatus()=='ACTIVE'?'selected':'';?> >ACTIVE</option>
+                  <option value="DEACTIVATED" <?php echo $this->user->getStatus()=='DEACTIVATED'?'selected':'';?> >DEACTIVATED</option>
+                </select>
+              </div>
+                <div class="form-group">
+                <label>Role</label>
+                <select name="role" class="form-control select2" style="width: 100%;">
+                  <option value="MEMBER" <?php echo $this->user->getRole()=='MEMBER'?'selected':'';?> >MEMBER</option>
+                  <option value="MANAGER" <?php echo $this->user->getRole()=='MANAGER'?'selected':'';?> >MANAGER</option>
+                </select>
+              </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>

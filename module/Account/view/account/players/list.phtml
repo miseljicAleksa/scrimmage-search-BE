@@ -1,0 +1,62 @@
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">List of players</h3>
+
+              <div class="box-tools">
+                
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="usersTable table table-hover">
+                <tr>
+             		<th></th>
+             		<th>Name</th>
+                  <th>Years of experience</th>
+                  <th>Interested in</th>
+                  <th>Player Image</th>
+                  <th></th>
+                  
+                </tr>
+                <?php foreach($this->players as $player):?>
+                <tr>
+                  <td><img class="img-circle" width="25" alt="" src="<?php echo \Workmark\User\User::getImage($player);?>"></td>         
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo strtoupper($player['name']);?></span>
+                  </td>
+                  
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $player['years_of_experience'];?></span>
+                  </td>
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $player['interested_in'];?></span>
+                  </td>
+                  
+                  <td><a href="<?php echo \Workmark\Model\Player::getImage("player", $player['user_id']);?>"><img class="img-circle" width="30" height="30" alt="" src="<?php echo \Workmark\Model\Player::getImage("player", $player['user_id']);?>"></a></td>
+                  
+                  <td>
+                  <a title="Edit" href="/account/players/edit?id=<?php echo $player['id'];?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> <span></span></a>
+                  <a title="View availability" href="/account/availability/list?id=<?php echo $player['id'];?>&entity=player" class="btn btn-xs"><i class="fa fa-clock-o"></i> <span>Available</span></a>
+                  </td>
+          		 
+                  
+                  
+
+                </tr>
+                <?php endforeach;?>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <div class="box-tools">
+                <?php echo $this->pagination; ?>
+              </div>
+            </div>
+            <!-- /.box-footer -->
+            
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>

@@ -1,0 +1,48 @@
+<?php if($this->status):?>
+    <?php if($this->status == "success"):?>
+    <div class="callout callout-success">
+                <h4>Success!</h4>
+                <p>The data has been successfully updated.</p>
+              </div>
+    <?php else:?>
+    <div class="callout callout-danger">
+                <h4>Error!</h4>
+                <p><?php echo $this->status;?>.</p>
+              </div>
+    <?php endif;?>
+
+<?php endif;?>
+
+<div class="row">
+        <div class="col-xs-12">
+           <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"><?php echo $this->player->years_of_experience;?></h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form" action="" method="post">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="year of xp">Year of experience</label>
+                  <input value="<?php echo $this->player->years_of_experience;?>" name="years_of_experience" type="text" class="form-control" id="exampleInputEmail1" placeholder="Year of experience">
+                </div>
+                <div class="form-group">
+                  <label for="interested in">Interested in</label>
+                  <input value="<?php echo $this->player->interested_in;?>" name="interested_in" type="text" class="form-control" id="exampleInputEmail1" placeholder="Interested in">
+                </div>
+                
+               
+                
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>

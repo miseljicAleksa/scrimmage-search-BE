@@ -1,0 +1,46 @@
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">List of users</h3>
+
+              <div class="box-tools">
+                
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="usersTable table table-hover">
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+                <?php foreach($this->users as $user):?>
+                <tr>
+                  <td><img class="img-circle" width="30" alt="" src="<?php echo Workmark\User\User::getImage($user);?>"></td>
+                  <td>
+                  <span style="font-size: 14px; float:left; clear: left; display:inline:block;"><?php echo $user['first_name'];?> <?php echo $user['last_name'];?></span>
+                  <span style="color:#999999; margin-top:-1px;font-size: 11px; float:left; clear: left; display:inline:block;"><?php echo $user['email'];?></span></td>
+                  <td><?php echo \Workmark\Misc::dateToHuman($user['created_on']);?></td>
+                  <td><span class="label label-<?php echo $user['status']=='ACTIVE'?'success':'danger';?>"><?php echo $user['status'];?></span></td>
+                  <td><a title="Edit" href="/account/users/edit?id=<?php echo $user['id'];?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> <span></span></a>
+                  </td>
+                </tr>
+                <?php endforeach;?>
+              </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <div class="box-tools">
+                <?php echo $this->pagination; ?>
+              </div>
+            </div>
+            <!-- /.box-footer -->
+            
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>

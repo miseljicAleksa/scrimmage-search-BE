@@ -1,0 +1,8 @@
+.vagrant/
+config/development.config.php
+config/autoload/local.php
+data/
+data/*
+phpunit.xml
+.DS_Store
+.project
